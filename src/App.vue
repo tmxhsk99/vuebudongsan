@@ -1,19 +1,11 @@
 <template>
   <div class="menu">
-    <a v-for="(a,i) in 메뉴들" :key="i">{{ i }} {{ a }}</a>
+    <a v-for="(a,i) in menu" :key="i">{{ a }}</a>
 
   </div>
-  <div>
-    <h4>{{ products[0] }}</h4>
-    <p>60 만원</p>
-  </div>
-  <div>
-    <h4>{{ products[1] }}</h4>
-    <p>70 만원</p>
-  </div>
-  <div>
-    <h4>{{ products[2] }}</h4>
-    <p>70 만원</p>
+  <div v-for="(val,i) in products" :key="i">
+    <h4>{{val}}</h4>
+    <p>{{ i+100 }} 만원</p>
   </div>
 </template>
 
@@ -23,7 +15,7 @@ export default {
   name: 'App',
   data() {
     return {
-      메뉴들: ['Home', 'shop', 'about'],
+      menu: ['Home', 'shop', 'about'],
       products: ['역삼동원룸', '천호동원룸', '마포구원룸']
     }
   },
