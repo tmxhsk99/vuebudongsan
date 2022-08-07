@@ -11,20 +11,10 @@
   <div class="menu">
     <a v-for="(a,i) in menu" :key="i">{{ a }}</a>
   </div>
-  <div>
-    <img :src="oneRoomProducts[0].image" class="room-img">
-    <h4 @click="modalIsOpen = true">{{ oneRoomProducts[0].title }}</h4>
-    <p>{{oneRoomProducts[0].price}} 만원</p>
-  </div>
-  <div>
-    <img src="./assets/room1.jpg" class="room-img">
-    <h4>{{ products[1] }}</h4>
-    <p>50 만원</p>
-  </div>
-  <div>
-    <img src="./assets/room2.jpg" class="room-img">
-    <h4>{{ products[2] }}</h4>
-    <p>60 만원</p>an>
+  <div v-for="(oneRoomProduct,index) in oneRoomProducts" :key="index">
+    <img :src="oneRoomProduct.image" class="room-img">
+    <h4 @click="modalIsOpen = true">{{ oneRoomProduct.title }}</h4>
+    <p>{{ oneRoomProduct.price }} 원</p>
   </div>
 </template>
 
@@ -35,7 +25,7 @@ export default {
   name: 'App',
   data() {
     return {
-      oneRoomProducts : oneRoomData,
+      oneRoomProducts: oneRoomData,
       modalIsOpen: false,
       신고수: [0, 0, 0],
       menu: ['Home', 'shop', 'about'],
