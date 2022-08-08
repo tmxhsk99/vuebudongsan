@@ -2,8 +2,10 @@
 
   <div class="black-bg" v-if="modalIsOpen == true">
     <div class="white-bg">
-      <h4>상세페이지임</h4>
-      <p>상세페이지 내용임</p>
+      <h4>{{ oneRoomProducts[clickProductIndex].title }}</h4>
+      <img :src="oneRoomProducts[clickProductIndex].image">
+      <p>{{ oneRoomProducts[clickProductIndex].content }}</p>
+      <p>{{ oneRoomProducts[clickProductIndex].price}} 원</p>
       <button @click="modalIsOpen=false">닫기</button>
     </div>
   </div>
@@ -13,7 +15,7 @@
   </div>
   <div v-for="(oneRoomProduct,index) in oneRoomProducts" :key="index">
     <img :src="oneRoomProduct.image" class="room-img">
-    <h4 @click="modalIsOpen = true">{{ oneRoomProduct.title }}</h4>
+    <h4 @click="modalIsOpen = true; clickProductIndex = index">{{ oneRoomProduct.title }}</h4>
     <p>{{ oneRoomProduct.price }} 원</p>
   </div>
 </template>
@@ -25,6 +27,7 @@ export default {
   name: 'App',
   data() {
     return {
+      clickProductIndex: 0,
       oneRoomProducts: oneRoomData,
       modalIsOpen: false,
       신고수: [0, 0, 0],
@@ -86,5 +89,9 @@ div {
 .menu a {
   color: white;
   padding: 10px;
+}
+.white-bg img{
+  width: 30%;
+  height: 30%;
 }
 </style>
