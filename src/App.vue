@@ -2,10 +2,10 @@
 
   <div class="black-bg" v-if="modalIsOpen == true">
     <div class="white-bg">
+      <img :src="oneRoomProducts[clickProductIndex].image" style="width:100%">
       <h4>{{ oneRoomProducts[clickProductIndex].title }}</h4>
-      <img :src="oneRoomProducts[clickProductIndex].image">
       <p>{{ oneRoomProducts[clickProductIndex].content }}</p>
-      <p>{{ oneRoomProducts[clickProductIndex].price}} 원</p>
+      <p>{{ oneRoomProducts[clickProductIndex].price }} 원</p>
       <button @click="modalIsOpen=false">닫기</button>
     </div>
   </div>
@@ -13,6 +13,9 @@
   <div class="menu">
     <a v-for="(a,i) in menu" :key="i">{{ a }}</a>
   </div>
+
+  <Discount/>
+
   <div v-for="(oneRoomProduct,index) in oneRoomProducts" :key="index">
     <img :src="oneRoomProduct.image" class="room-img">
     <h4 @click="modalIsOpen = true; clickProductIndex = index">{{ oneRoomProduct.title }}</h4>
@@ -22,6 +25,7 @@
 
 <script>
 import oneRoomData from './assets/oneroom.js';
+import Discount from './DiscountBanner.vue';
 
 export default {
   name: 'App',
@@ -39,7 +43,10 @@ export default {
       this.신고수[i] += 1;
     },
   },
-  components: {}
+  components: {
+    //컴포넌트 등록
+    Discount : Discount,
+  }
 }
 </script>
 
@@ -90,7 +97,8 @@ div {
   color: white;
   padding: 10px;
 }
-.white-bg img{
+
+.white-bg img {
   width: 30%;
   height: 30%;
 }
