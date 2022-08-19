@@ -1,14 +1,6 @@
 <template>
 
-  <div class="black-bg" v-if="modalIsOpen == true">
-    <div class="white-bg">
-      <img :src="oneRoomProducts[clickProductIndex].image" style="width:100%">
-      <h4>{{ oneRoomProducts[clickProductIndex].title }}</h4>
-      <p>{{ oneRoomProducts[clickProductIndex].content }}</p>
-      <p>{{ oneRoomProducts[clickProductIndex].price }} 원</p>
-      <button @click="modalIsOpen=false">닫기</button>
-    </div>
-  </div>
+<ModalPopUp/>
 
   <div class="menu">
     <a v-for="(a,i) in menu" :key="i">{{ a }}</a>
@@ -24,6 +16,7 @@
 </template>
 
 <script>
+import ModalPopUp from './ModalPopUp.vue';
 import oneRoomData from './assets/oneroom.js';
 import Discount from './DiscountBanner.vue';
 
@@ -46,6 +39,7 @@ export default {
   components: {
     //컴포넌트 등록
     Discount : Discount,
+    ModalPopUp : ModalPopUp,
   }
 }
 </script>
@@ -59,20 +53,7 @@ div {
   box-sizing: border-box;
 }
 
-.black-bg {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  padding: 20px;
-}
 
-.white-bg {
-  width: 100%;
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-}
 
 .room-img {
   width: 100%;
