@@ -5,7 +5,8 @@
       <h4>{{ oneRoomProducts[clickProductIndex].title }}</h4>
       <p>{{ oneRoomProducts[clickProductIndex].content }}</p>
       <p>{{ oneRoomProducts[clickProductIndex].price }} 원</p>
-<!--      <button @click="modalIsOpen=false">닫기</button>-->
+      <!-- props로 전달한 값은 read Only 이므로 변경 불가능     -->
+      <!--<button @click="modalIsOpen=false">닫기</button>-->
     </div>
   </div>
 </template>
