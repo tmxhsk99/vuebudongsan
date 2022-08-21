@@ -1,6 +1,6 @@
 <template>
 
-<ModalPopUp/>
+<ModalPopUp :oneRoomProducts ="oneRoomProducts" :clickProductIndex = clickProductIndex :modalIsOpen = modalIsOpen />
 
   <div class="menu">
     <a v-for="(a,i) in menu" :key="i">{{ a }}</a>

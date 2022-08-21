@@ -5,14 +5,19 @@
       <h4>{{ oneRoomProducts[clickProductIndex].title }}</h4>
       <p>{{ oneRoomProducts[clickProductIndex].content }}</p>
       <p>{{ oneRoomProducts[clickProductIndex].price }} 원</p>
-      <button @click="modalIsOpen=false">닫기</button>
+<!--      <button @click="modalIsOpen=false">닫기</button>-->
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ModalPopUp"
+  name: "ModalPopUp",
+  props :{
+    oneRoomProducts : Array ,
+    clickProductIndex : Number ,
+    modalIsOpen : Boolean ,
+  }
 }
 </script>
 
